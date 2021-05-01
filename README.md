@@ -1,27 +1,29 @@
 # Getting Started
 
-### Reference Documentation
+### Instructions
+This application is to retrieve user access of a feature or to modify access by feature name and email. Following are the supported HTTP operations and examples.
 
-For further reference, please consider the following sections:
+* **GET**<br/>
+  Example: <br/>
+  http://localhost:8080/feature?email=XXX&featureName=XXX
+  <br/><br/>
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.4.5/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.4.5/gradle-plugin/reference/html/#build-image)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.4.5/reference/htmlsingle/#boot-features-jpa-and-spring-data)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.4.5/reference/htmlsingle/#boot-features-developing-web-applications)
+* **POST**<br/>
+  Note: Feature name and email must exist in the database <br/>
+  Example: <br/>
+  http://localhost:8080/feature <br/>
+  {
+  "featureName": "Feature 1",
+  "email": "test1@gmail.com",
+  "enable": true
+  } <br/><br/>
 
-### Guides
+### Database Access
+Run UserAccessFeaturesApplication and enter url http://localhost:8080/h2-console/
 
-The following guides illustrate how to use some features concretely:
+JDBC URL: (Change JDBC URL to jdbc:h2:mem:test) <br/>
+Username: sa <br/>
+Password: (leave blank) <br/>
 
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-
-### Additional Links
-
-These additional references should also help you:
-
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-
+### Unit Test
+Unit test is included in src/test/java/com/features/api/UserAccessFeaturesApplicationTests. You may either execute UserAccessFeaturesApplicationTests class to run all test methods or run individual @Test methods

@@ -1,3 +1,3 @@
 INSERT INTO features (feature_name, email, enable) VALUES
-('lala', 'lala@gmail.com', true),
-('lolo', 'lolo@gmail.com', false);
+('feature1', 'test1@gmail.com', true),
+('feature2', 'test2@gmail.com', false);
